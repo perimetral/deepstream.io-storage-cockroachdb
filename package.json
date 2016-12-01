@@ -1,0 +1,32 @@
+{
+  "name": "deepstream.io-storage-cockroachdb",
+  "version": "1.0.0",
+  "description": "CockroachDB connector for using as storage connector with Deepstream.io",
+  "main": "src/connector.js",
+  "scripts": {
+    "test": "mocha",
+    "coverage": "istanbul cover _mocha",
+    "lint": "eslint \"src/**/*.js\" \"test/**/*.js\"",
+    "ci": "npm run coverage && npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/perimetral/deepstream.io-storage-cockroachdb"
+  },
+  "author": "perimetral",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/perimetral/deepstream.io-storage-cockroachdb/issues"
+  },
+  "dependencies": {
+    "pg": "*"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "coveralls": "^2.11.9",
+    "eslint": "^2.11.1",
+    "eslint-config-airbnb": "^3.1.0",
+    "istanbul": "^0.4.3",
+    "mocha": "^2.5.2"
+  }
+}
