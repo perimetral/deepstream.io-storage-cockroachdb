@@ -61,7 +61,7 @@ Where:
 
 **Usage example**
 
-Here is simple example of connecting and using of MariaDB connector:
+Here is simple example of connecting and using of CockroachDB connector:
 
 ```javascript
 let ds = require('deepstream.io');
@@ -71,7 +71,7 @@ server.set('storage', new connector({});
 server.start();
 
 //  AFTER THIS YOU ARE ABLE TO PERFORM ALL OF CLASSIC DEEPSTREAM DATA MANIPULATIONS
-//  AND ALL OF THEM WILL BE PROCESSED BY MARIADB CONNECTOR
+//  AND ALL OF THEM WILL BE PROCESSED BY COCKROACHDB CONNECTOR
 ```
 
 **Configuring from Javascript**
