@@ -4,7 +4,7 @@ dist: trusty
 env:
   global:
     - CXX=g++-4.8
-    - ds_cockroach=postgresql://postgres@localhost:26257?sslmode=disable
+    - ds_cockroach=postgresql://postgres@localhost:5432?sslmode=disable
     - ds_dbName=deepstream
     - ds_tableName=deepstream_storage
     - ds_keyType=text
