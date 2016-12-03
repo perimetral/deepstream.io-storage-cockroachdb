@@ -90,3 +90,4 @@ server.set('storage', new connector({
 ```
 
 Do not forget to run `server.start()` after connecting and configuring connector.
+Yay!
