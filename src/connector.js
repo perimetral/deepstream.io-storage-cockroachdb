@@ -56,35 +56,26 @@ class Connector extends events.EventEmitter {
 		this._db = dbGenerator(options, this);
 	}
 
-	_upsert (tableName, key, value) {
-		return new Promise((go, stop) => {
-			this._db.query(`select * from ${tableName} where ds_key = $1`, [ key ], (e, rows) => {
-				if (e) return stop(e);
-				if (rows[0]) this._db.query(`update ${tableName} set ds_value = $1 where ds_key = $2`, [ value, key ], (e, rows) => {
-					if (e) return stop(e);
-					return go();
-				});
-				if (! rows[0]) this._db.query(`insert into ${tableName} (ds_key, ds_value) values ($1, $2)`, [ key, JSON.stringify(value) ], (e, rows) => {
-					if (e) return stop(e);
-					return go();
-				});
-			});
-		});	
-	}
-
 	set (key, value, callback) {
 		let splitted = undefined;
 		try {
 			 splitted = key.split(this._splitter);
 		} catch (e) { return callback(e); };
 		let tableName = (splitted.length > 1) ? splitted[0] : this._tableName;
-		if (this._tableList.includes(tableName)) this._upsert(tableName, key, value).then(() => { return callback(null); }, (e) => { return callback(e); });
-		else {
+		if (this._tableList.includes(tableName)) {
+			this._db.query(`upsert into ${tableName} (ds_key, ds_value) values ($1, $2)`, [ key, JSON.stringify(value) ], (e, rows) => {
+				if (e) return callback(e);
+				return callback(null);
+			});
+		} else {
 			let keyType = this._keyType;
 			let valueType = this._valueType;
 			this._db.query(`create table if not exists ${tableName} (ds_key ${keyType}, ds_value ${valueType})`, (e, result) => {
 				if (e) return this.emit('error', e);
-				this._upsert(tableName, key, value).then(() => { return callback(null); }, (e) => { return callback(e); });
+				this._db.query(`upsert into ${tableName} (ds_key, ds_value) values ($1, $2)`, [ key, JSON.stringify(value) ], (e, rows) => {
+					if (e) return callback(e);
+					return callback(null);
+				});
 			});
 		};
 	}
