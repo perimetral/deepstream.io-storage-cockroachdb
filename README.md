@@ -66,7 +66,7 @@ Here is simple example of connecting and using of CockroachDB connector:
 ```javascript
 let ds = require('deepstream.io');
 let connector = require('deepstream.io-storage-cockroachdb');
-let server = new Deepstream();
+let server = new ds();
 server.set('storage', new connector({}));
 server.start();
 
