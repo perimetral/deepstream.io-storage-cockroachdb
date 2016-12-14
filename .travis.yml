@@ -24,14 +24,14 @@ node_js:
   - "7"
 
 before_install:
-  - sudo apt-get update -q
+  - sudo apt-get update -qq
   - curl -o cockroach.tgz -L https://binaries.cockroachdb.com/cockroach-latest.linux-amd64.tgz
   - tar xfz ./cockroach.tgz
   - sudo cp cockroach-latest.linux-amd64/cockroach /usr/local/bin/.
   - sudo chmod 755 /usr/local/bin/cockroach
-  - /usr/local/bin/cockroach
 
 script:
+  - /usr/local/bin/cockroach
   - npm run test
   - curl -o package.sh -L https://raw.githubusercontent.com/deepstreamIO/deepstream.io-connector-publishingtest/master/scripts/package.sh
   - chmod 555 package.sh
