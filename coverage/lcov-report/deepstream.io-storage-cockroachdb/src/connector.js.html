@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for deepstream.io-storage-cockroachdb/src/connector.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">deepstream.io-storage-cockroachdb/src/</a> connector.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">72.28% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>73/101</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>22/44</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">86.42% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>70/81</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">'use strict'
+&nbsp;
+const events = require('events');
+const util = require('util');
+const pckg = require('../package.json');
+const defaults = require('../defaults.js');
+&nbsp;
+const pg = require('pg');
+&nbsp;
+const dbGenerator = (options, self) =&gt; {
+	let db = new pg.Client(options.cockroach);
+	db.end();
+	db.connect((e) =&gt; {
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (e) <span class="cstat-no" title="statement not covered" >return self.emit('error', e);</span>
+		db.query(`create database if not exists ${options.dbName}`, (e, result) =&gt; {
+			<span class="missing-if-branch" title="if path not taken" >I</span>if (e) <span class="cstat-no" title="statement not covered" >return self.emit('error', e);</span>
+			db.query(`set database = ${options.dbName}`, (e, result) =&gt; {
+				<span class="missing-if-branch" title="if path not taken" >I</span>if (e) <span class="cstat-no" title="statement not covered" >return self.emit('error', e);</span>
+				db.query(`create table if not exists ${options.tableName} (ds_key ${options.keyType}, ds_value ${options.valueType})`, (e, result) =&gt; {
+					<span class="missing-if-branch" title="if path not taken" >I</span>if (e) <span class="cstat-no" title="statement not covered" >return self.emit('error', e);</span>
+					db.query('show tables', (e, data) =&gt; {
+						<span class="missing-if-branch" title="if path not taken" >I</span>if (e) <span class="cstat-no" title="statement not covered" >return self.emit('error', e);</span>
+						data.rows.forEach((x, i, ar) =&gt; { self._tableList.push(x.Table); });
+					});
+				});
+				self.isReady = true;
+				self.emit('ready');
+			});
+		});
+	});
+	db.on('error', (e) =&gt; { <span class="cstat-no" title="statement not covered" >self.emit('error', e); </span>});
+	return db;
+};
+&nbsp;
+class Connector extends events.EventEmitter {
+	constructor (options) {
+		super();
+		if (! (typeof options === 'object')) throw new TypeError('Incorrect connection options passed');
+		this.isReady = false;
+		this.name = pckg.name;
+		this.version = pckg.version;
+		options = Object.assign({}, defaults, options);
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (process.env.ds_cockroach) <span class="cstat-no" title="statement not covered" >options.cockroach = process.env.ds_cockroach;</span>
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (process.env.ds_dbName) <span class="cstat-no" title="statement not covered" >options.dbName = process.env.ds_dbName;</span>
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (process.env.ds_tableName) <span class="cstat-no" title="statement not covered" >options.tableName = process.env.ds_tableName;</span>
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (process.env.ds_keyType) <span class="cstat-no" title="statement not covered" >options.keyType = process.env.ds_keyType;</span>
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (process.env.ds_valueType) <span class="cstat-no" title="statement not covered" >options.valueType = process.env.ds_valueType;</span>
+		<span class="missing-if-branch" title="if path not taken" >I</span>if (process.env.ds_splitter) <span class="cstat-no" title="statement not covered" >options.splitter = process.env.ds_splitter;</span>
+		this.options = Object.assign({}, options);
+		this._dbName = options.dbName;
+		this._tableName = options.tableName;
+		this._keyType = options.keyType;
+		this._valueType = options.valueType;
+		this._splitter = options.splitter;
+		this._tableList = [];
+		this._db = dbGenerator(options, this);
+	}
+&nbsp;
+	set (key, value, callback) {
+		let splitted = undefined;
+		try {
+			 splitted = key.split(this._splitter);
+		} catch (e) { <span class="cstat-no" title="statement not covered" >return callback(e); </span>};
+		let tableName = (splitted.length &gt; 1) ? <span class="branch-0 cbranch-no" title="branch not covered" >splitted[0] </span>: this._tableName;
+		<span class="missing-if-branch" title="else path not taken" >E</span>if (this._tableList.includes(tableName)) {
+			this._db.query(`upsert into ${tableName} (ds_key, ds_value) values ($1, $2)`, [ key, JSON.stringify(value) ], (e, rows) =&gt; {
+				<span class="missing-if-branch" title="if path not taken" >I</span>if (e) <span class="cstat-no" title="statement not covered" >return callback(e);</span>
+				return callback(null);
+			});
+		} else {
+<span class="cstat-no" title="statement not covered" >			let keyType = this._keyType;</span>
+<span class="cstat-no" title="statement not covered" >			let valueType = this._valueType;</span>
+<span class="cstat-no" title="statement not covered" >			this._db.query(`create table if not exists ${tableName} (ds_key ${keyType}, ds_value ${valueType})`, (e, result) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >				if (e) <span class="cstat-no" title="statement not covered" >return this.emit('error', e);</span></span>
+<span class="cstat-no" title="statement not covered" >				this._db.query(`upsert into ${tableName} (ds_key, ds_value) values ($1, $2)`, [ key, JSON.stringify(value) ], (e, rows) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >					if (e) <span class="cstat-no" title="statement not covered" >return callback(e);</span></span>
+<span class="cstat-no" title="statement not covered" >					return callback(null);</span>
+				});
+			});
+		};
+	}
+&nbsp;
+	get (key, callback) {
+		let splitted = undefined;
+		try {
+			 splitted = key.split(this._splitter);
+		} catch (e) { <span class="cstat-no" title="statement not covered" >return callback(e); </span>};
+		let tableName = (splitted.length &gt; 1) ? <span class="branch-0 cbranch-no" title="branch not covered" >splitted[0] </span>: this._tableName;
+		this._db.query(`select * from ${tableName} where ds_key = $1`, [ key ], (e, data) =&gt; {
+			<span class="missing-if-branch" title="if path not taken" >I</span>if (e) <span class="cstat-no" title="statement not covered" >return callback(e);</span>
+			if (data.rows.length &lt; 1) return callback(null, null);
+			let result = data.rows[0].ds_value;
+			try {
+				let deserialized = JSON.parse(result);
+				return callback(null, deserialized);
+			} catch (e) {
+<span class="cstat-no" title="statement not covered" >				return callback(null, result);</span>
+			};
+		});
+	}
+&nbsp;
+	delete (key, callback) {
+		let splitted = undefined;
+		try {
+			 splitted = key.split(this._splitter);
+		} catch (e) { <span class="cstat-no" title="statement not covered" >return callback(e); </span>};
+		let tableName = (splitted.length &gt; 1) ? <span class="branch-0 cbranch-no" title="branch not covered" >splitted[0] </span>: this._tableName;
+		this._db.query(`delete from ${tableName} where ds_key = $1`, [ key ], (e, rows) =&gt; {
+			<span class="missing-if-branch" title="if path not taken" >I</span>if (e) <span class="cstat-no" title="statement not covered" >callback(e);</span>
+			return callback(null);
+		});
+	}
+}
+&nbsp;
+module.exports = Connector;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 15 2016 01:14:23 GMT+0200 (EET)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
