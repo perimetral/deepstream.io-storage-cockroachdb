@@ -31,7 +31,7 @@ before_install:
   - sudo chmod 755 /usr/local/bin/cockroach
 
 script:
-  - /usr/local/bin/cockroach
+  - /usr/local/bin/cockroach start
   - npm run test
   - curl -o package.sh -L https://raw.githubusercontent.com/deepstreamIO/deepstream.io-connector-publishingtest/master/scripts/package.sh
   - chmod 555 package.sh
