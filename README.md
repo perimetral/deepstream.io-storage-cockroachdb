@@ -1,4 +1,4 @@
-# deepstream.io-storage-cockroachdb [![npm version](https://badge.fury.io/js/deepstream.io-storage-cockroachdb.svg)](https://badge.fury.io/js/deepstream.io-storage-cockroachdb)
+# deepstream.io-storage-cockroachdb [![npm version](https://badge.fury.io/js/deepstream.io-storage-cockroachdb.svg)](https://badge.fury.io/js/deepstream.io-storage-cockroachdb) [![Build Status](https://travis-ci.org/perimetral/deepstream.io-storage-cockroachdb.svg?branch=master)](https://travis-ci.org/perimetral/deepstream.io-storage-cockroachdb)
 
 [Deepstream.io](http://deepstream.io) storage connector for [CockroachDB](https://www.cockroachlabs.com/)
 
