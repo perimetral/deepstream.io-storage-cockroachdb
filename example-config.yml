@@ -1,10 +1,8 @@
 plugins:
   storage:
-    name: deepstream.io-storage-mariadb
+    name: deepstream.io-storage-cockroachdb
     options:
-      ds_host: 'localhost'
-      ds_user: 'john'
-      ds_password: '123'
+      ds_host: 'postgresql://root@localhost:26257?sslmode=disable'
       ds_databaseName: 'deepstream'
       ds_tableName: 'deepstream_storage'
       ds_keyType: 'text'
